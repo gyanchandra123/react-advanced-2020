@@ -7,8 +7,10 @@ const UseEffectBasics = () => {
 
   // to check the working of the useffect:
   useEffect(() => {
-    console.log("use effect");
-    document.title = `new doc title ${count}`;
+    if (count > 2) {
+      console.log("use effect");
+      document.title = `new doc title ${count}`;
+    }
   });
 
   console.log("component render");
@@ -17,7 +19,9 @@ const UseEffectBasics = () => {
     <>
       <h2>useEffect Basics</h2>
       <h3>count value :{count}</h3>
-      <button onClick={()=>setCount(count + 1)} className='btn'>increase count</button>
+      <button onClick={() => setCount(count + 1)} className="btn">
+        increase count
+      </button>
     </>
   );
 };
