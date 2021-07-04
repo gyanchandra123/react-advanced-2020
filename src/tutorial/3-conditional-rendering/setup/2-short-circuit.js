@@ -4,19 +4,18 @@ import React, { useState } from "react";
 
 const ShortCircuit = () => {
   const [text, settext] = useState("a");
-
-  /* const firstValue = text || "hello world";
-  const secondValue = text && "hello world";
+  const [isError, setIsError] = useState(false);
 
   return (
     <>
-      <h2>1st:{firstValue}</h2>
-      <h2>2nd :{secondValue}</h2>
-    </>
-  ); */
+      <h3>conditional rendering with short-circuit vs ternary operator</h3>
 
-  return (
-    <>
+      <button onClick={() => setIsError(!isError)} className="btn">
+        toggle condition
+      </button>
+
+      {isError && <h3>there is some error</h3>}
+      {isError ? <h3>network error !!!</h3> : <h3>welcome back </h3>}
       <h1>{text || "john doe"}</h1>
       {text && <h2>hello world</h2>}
     </>
