@@ -8,10 +8,25 @@ import React, { useState } from "react";
 const ControlledInputs = () => {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
+  const [people, setPeople] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault(); // without this any of the belong code won't have much effective,
     console.log(`${firstName} and ${email}`);
+    if (firstName && email) {
+      const person = {
+        id: new Date().getTime().toString(),
+        firstName,
+        email,
+      };
+
+      setPeople(() => {
+        return [...people, person];
+      });
+
+      setFirstName("");
+      setEmail("");
+    }
   };
 
   return (
@@ -41,6 +56,16 @@ const ControlledInputs = () => {
 
         <button type="submit">add person</button>
       </form>
+
+      {people.map((person) => {
+        const { id, firstName, email } = person;
+        return (
+          <div className="item" key={id}>
+            <h4>{firstName}</h4>
+            <p>{email}</p>
+          </div>
+        );
+      })}
     </>
   );
 };
