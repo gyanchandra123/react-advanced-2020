@@ -11,7 +11,11 @@ const UseEffectBasics = () => {
       console.log("use effect");
       document.title = `new doc title ${count}`;
     }
-  });
+  },[count]);
+
+  useEffect(()=>{
+    console.log('running on the initial page load')
+  },[]) 
 
   console.log("component render");
 
