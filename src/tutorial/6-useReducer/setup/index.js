@@ -13,6 +13,7 @@ const defaultState = {
 const Index = () => {
   const [name, setName] = useState("");
 
+  //Reducer
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   const handleSubmit = (e) => {
