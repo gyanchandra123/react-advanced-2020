@@ -10,7 +10,28 @@ import Person from './Person';
 // navbar
 import Navbar from './Navbar';
 const ReactRouterSetup = () => {
-  return <h2>react router</h2>;
+  return <Router>
+      <Route exact path='/'>
+          <Home/>
+      </Route>
+
+      <Route path='/about'>
+          <About/>
+      </Route>
+
+      <Route path='/people'>
+          <People/>
+      </Route>
+  </Router>;
 };
 
 export default ReactRouterSetup;
+
+// note : the <Router> must wrap the root component in our app.
+// in react router: if the paths matches , then both the component will be display.
+/* 
+1. for example : if we go to the url '/people'. then 2 urls related component will be 
+display:  '/' && 'people'
+2. solution : use exact
+  - we can probably used the 'exact in every path of the components'
+*/ 
